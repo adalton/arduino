@@ -41,6 +41,7 @@ CFLAGS         =
 CFLAGS        += -g
 CFLAGS        += -Os
 CFLAGS        += -Wall
+CFLAGS        += -Wextra
 CFLAGS        += -ffunction-sections
 CFLAGS        += -fdata-sections
 CFLAGS        += -mmcu=$(MCU_$(T))
