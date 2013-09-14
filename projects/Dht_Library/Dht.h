@@ -47,7 +47,7 @@
 class Dht {
 private:
     // The pin over which we communicate with the sensor
-    int pin;
+    uint8_t pin;
 
     // The last read humidity value
     double humidity;
@@ -71,7 +71,7 @@ public:
      * Constructs a new Dht object that communicates with a DHT11 sensor
      * over the given pin.
      */
-    Dht(int newPin) : pin(newPin), humidity(-1), temperature(-1) {
+    Dht(uint8_t newPin) : pin(newPin), humidity(-1), temperature(-1) {
     }
 
     /*
@@ -89,7 +89,7 @@ public:
      *
      * Gets the last read relative humidity percentage.
      */
-    inline int getHumidity() const {
+    inline double getHumidity() const {
         return this->humidity;
     }
 
@@ -98,7 +98,7 @@ public:
      *
      * Gets the last read temperature value in degrees Celsius.
      */
-    inline int getTemperature() const {
+    inline double getTemperature() const {
         return this->temperature;
     }
 
@@ -167,15 +167,6 @@ protected:
         }
 
         return (maxIterations > 0) ? OK : ERROR_TIMEOUT;
-    }
-
-    /*
-     * getDataPin
-     *
-     * Gets the pin connected to the data line of the DHT-base sensor.
-     */
-    inline int getDataPin() const {
-        return pin;
     }
 
     /*

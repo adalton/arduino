@@ -39,7 +39,7 @@ public:
      * Constructs a new Dht11 object that communicates with a DHT11 sensor
      * over the given pin.
      */
-    Dht11(int newPin) : Dht(newPin) {
+    Dht11(uint8_t newPin) : Dht(newPin) {
     }
 
     /*

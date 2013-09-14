@@ -101,7 +101,6 @@ Dht::ReadStatus Dht::read() {
      * ... then provide 5 bytes of data that include the integral part of the
      * humidity, the fractional part of the humidity, the integral part of the
      * temperature, the fractional part of the temperature, and a checksum
-     * that is the sum of the integral parts of humidity and temperature.
      */
     for (size_t i = 0; i < BITS_IN(buffer); i++) {
         if ((status = this->waitForPinChange(LOW)) != OK) {
