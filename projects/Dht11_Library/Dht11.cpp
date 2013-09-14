@@ -5,6 +5,8 @@
  *
  * DHT11 Temperature and humidity sensor library for Arduino.
  *
+ * See http://playground.arduino.cc/main/DHT11Lib 
+ *
  * License:   GPL v3 (http://www.gnu.org/licenses/gpl.html)
  * Datasheet: http://www.micro4you.com/files/sensor/DHT11.pdf
  *
