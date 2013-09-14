@@ -46,14 +46,14 @@
  */
 class Dht {
 private:
-    // The pin over which we communicate with the sensor
-    uint8_t pin;
-
     // The last read humidity value
     double humidity;
 
     // The last read temperature value
     double temperature;
+
+    // The pin over which we communicate with the sensor
+    uint8_t pin;
 
 public:
     // An enumeration modeling the read status of the sensor.
@@ -71,7 +71,7 @@ public:
      * Constructs a new Dht object that communicates with a DHT11 sensor
      * over the given pin.
      */
-    Dht(uint8_t newPin) : pin(newPin), humidity(-1), temperature(-1) {
+    Dht(uint8_t newPin) : humidity(-1.0), temperature(-1.0), pin(newPin) {
     }
 
     /*
