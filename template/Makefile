@@ -1,3 +1,29 @@
+#
+# Makefile
+#
+# A simple makefile for building Arduino app
+#
+# Andy Dalton - August 2013
+#
+# This Makefile currently supports builds for the Uno and Mega 2560.  To build
+# type:
+#     make all,uno 
+# or
+#     make all,mega
+#
+# To install, type:
+#     make install,uno
+# or
+# 	  make install,mega
+#
+# Projects requiring additional libraries can include a project.mk file where
+# they can specifies the directory that should be included.  For example,
+# if I had a project that needed the 'Wire' library, I would include a
+# project.mk containing:
+#  
+#     $(eval $(call add_library_dir,$(LIBSPATH)/Wire))
+#     $(eval $(call add_library_dir,$(LIBSPATH)/Wire/utility))
+#
 SHELL          = bash
 ARDUINO_ROOT  ?= /usr/share/arduino
 COREPATH       = $(ARDUINO_ROOT)/hardware/arduino/cores/arduino
@@ -41,6 +67,7 @@ CFLAGS         =
 CFLAGS        += -g
 CFLAGS        += -Os
 CFLAGS        += -Wall
+CFLAGS        += -Wextra
 CFLAGS        += -ffunction-sections
 CFLAGS        += -fdata-sections
 CFLAGS        += -mmcu=$(MCU_$(T))
