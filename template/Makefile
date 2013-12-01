@@ -46,8 +46,8 @@ AVRDUDE        = $(ARDUINO_ROOT)/hardware/tools/avrdude
 # Target-specific MCU definitions
 MCU_uno        = atmega328p
 MCU_mega       = atmega2560
-MCU_mini	   = atmega328p
-MCU_nano	   = atmega328p
+MCU_mini       = atmega328p
+MCU_nano       = atmega328p
 
 # Target-specific mcu frequency definitions
 MCU_FREQ_uno   = 16000000L
@@ -68,7 +68,7 @@ PROG_mini      = arduino
 PROG_nano      = arduino
 
 # Target-specific arvdude baud rates
-BAUD_uno	   = 115200
+BAUD_uno       = 115200
 BAUD_mega      = 115200
 BAUD_mini      =  57600
 BAUD_nano      =  57600
