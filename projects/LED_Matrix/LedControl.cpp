@@ -2,6 +2,8 @@
  * LedControl.cpp - A library for controling Leds with a MAX7219/MAX7221
  * Copyright (c) 2007 Eberhard Fahle
  *
+ * Originally from: http://playground.arduino.cc/Main/LedControl
+ *
  * Minor modifications by Andy Dalton, December 2013
  *     * Added a ton of whitespace to increase readibility
  *     * Added some inline helper functions to eliminate code duplication
@@ -191,13 +193,15 @@ void LedControl::setColumn(int addr, int col, byte value) {
     }
 }
 
-void LedControl::setDigit(int addr, int digit, byte value, boolean dp) {
+void LedControl::setDigit(int addr, int digit, byte value,
+                          boolean decimalPoint) {
     if (       this->isValidAddress(addr) && this->isValidDigit(digit)
             && this->isValidValue(value)) {
-        int offset = (addr * 8) + digit;
-        byte v = this->charTable[value];
 
-        if (dp) {
+        int  offset = (addr * 8) + digit;
+        byte v      = this->charTable[value];
+
+        if (decimalPoint) {
             v |= 0b10000000;
         }
 
@@ -206,11 +210,12 @@ void LedControl::setDigit(int addr, int digit, byte value, boolean dp) {
     }
 }
 
-void LedControl::setChar(int addr, int digit, char value, boolean dp) {
+void LedControl::setChar(int addr, int digit, char value,
+                         boolean decimalPoint) {
     if (this->isValidAddress(addr)) {
         if (this->isValidDigit(digit)) {
-            int offset = (addr * 8) + digit;
-            byte index = (byte) value;
+            int  offset = (addr * 8) + digit;
+            byte index  = (byte) value;
 
             if (index > sizeof(charTable)) {
                 // Invalid value (nothing defined) -- we'll use the space char
@@ -219,7 +224,7 @@ void LedControl::setChar(int addr, int digit, char value, boolean dp) {
 
             byte v = this->charTable[index];
 
-            if (dp) {
+            if (decimalPoint) {
                 v |= 0b10000000;
             }
 

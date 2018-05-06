@@ -1,6 +1,8 @@
 /*
  * Driver.cpp - A sample application for controling Leds with a MAX7219/MAX7221
  * Copyright (c) 2007 Eberhard Fahle
+ *
+ * Originally from: http://playground.arduino.cc/Main/LedControl
  * 
  * Minor modifications by Andy Dalton, December 2013
  *     * Cleaned up the formatting a bit
